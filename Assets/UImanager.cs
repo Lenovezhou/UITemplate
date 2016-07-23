@@ -36,7 +36,7 @@ public class UImanager : MonoBehaviour {
 		uiTr.name = eui.ToString ();
 		UIBase ui = uiTr.GetComponent<UIBase> ();
 		if (ui==null) {
-			ui=uiTr.gameObject.AddComponent(Types.GetType(eui.ToString()))as UIBase;
+			ui=uiTr.gameObject.AddComponent(Types.GetType(eui.ToString(),typeof().ToString()))as UIBase;
 		}
 		ui.transform.localPosition=Vector3.zero;
 		duIs.Add(eui,ui);
