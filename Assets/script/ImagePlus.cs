@@ -42,11 +42,9 @@ public class ImagePlus :Image {
 
 	void Update()
 	{
-		if (isin) {
-			GetComponent<Image> ().color = Color.black;
-		} else {
-			GetComponent<Image> ().color = Color.red;
-		}
+		if (isin&&Input.GetMouseButtonDown(0)) {
+			Debug.Log ("Donwn");
+		} 
 	}
 
 
