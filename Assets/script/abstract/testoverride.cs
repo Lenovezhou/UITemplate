@@ -4,11 +4,13 @@ using System.Collections;
 public class testoverride : testabstract {
 
 
-	// Use this for initialization
+
 	void Start ()
 	{
 		callback ();
 		fathersfonction ();
+
+		Debug.LogError (InvokeSigoleton.GetInstance.name);
 	}
 	public override void fathersfonction ()
 	{

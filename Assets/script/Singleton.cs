@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Singleton<T> : MonoBehaviour where T:Component
+public class Singleton <T> : MonoBehaviour where T:Component
 {
 	private static T Testinstance;
 	private static T instance;
@@ -24,7 +24,7 @@ public class Singleton<T> : MonoBehaviour where T:Component
 	public virtual void Awake()
 	{
 
-
+		Debug.Log ("ParentsAwake----start");
 			if (instance !=  null) {
 
 				Destroy(gameObject);
