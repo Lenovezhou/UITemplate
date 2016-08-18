@@ -39,10 +39,23 @@ public class Test : Editor
         Caching.CleanCache();
 
 
-        string Path = Application.dataPath + "/StreamingAssets/ALL.assetbundle";
+      //  string Path = Application.dataPath + "/StreamingAssets/ALL.assetbundle";
 
 
         Object[] SelectedAsset = Selection.GetFiltered(typeof(Object), SelectionMode.DeepAssets);
+        for (int i = 0; i < SelectedAsset.Length; i++)
+        {
+            string Path = Application.dataPath + "/StreamingAssets/"+i+".assetbundle";
+            if (BuildPipeline.BuildAssetBundle(null, SelectedAsset, Path, BuildAssetBundleOptions.CollectDependencies))
+            {
+                AssetDatabase.Refresh();
+            }
+            else
+            {
+
+            }
+
+        }
 
         foreach (Object obj in SelectedAsset)
         {
@@ -50,14 +63,7 @@ public class Test : Editor
         }
 
         //这里注意第二个参数就行
-        if (BuildPipeline.BuildAssetBundle(null, SelectedAsset, Path, BuildAssetBundleOptions.CollectDependencies))
-        {
-            AssetDatabase.Refresh();
-        }
-        else
-        {
-
-        }
+       
     }
 
     [MenuItem("Custom Editor/Create Scene")]
